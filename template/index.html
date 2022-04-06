@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Design by foolishdeveloper.com -->
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>Pancreatic_Cancer</title>
+  <style>
+    body {
+      margin: 0px;
+      height: 100vh;
+      background: #1283da;
+    }
+
+    .center {
+      margin-top: 50px;
+      height: 200px;
+      width: 600px;
+      display: flex;
+      align-items: left;
+      justify-content: left;
+
+    }
+
+    #note {
+      padding-left: 35%;
+      font-size: 15px;
+      margin: 0px;
+    }
+
+    .form-input {
+      width: 600px;
+      height: 300px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+        3px 3px 7px rgba(94, 104, 121, 0.377);
+    }
+
+    .form-input input {
+      display: none;
+
+    }
+
+    .preview {
+      padding-left: 150px;
+    }
+
+    .form-input label {
+      display: inline-block;
+      width: 45%;
+      height: 45px;
+      margin-left: 25%;
+      line-height: 50px;
+      text-align: center;
+      background: #1172c2;
+      color: #fff;
+      font-size: 15px;
+      font-family: "Open Sans", sans-serif;
+      text-transform: Uppercase;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-input img {
+      width: 50%;
+      height: 50%;
+      display: none;
+      margin-bottom: 30px;
+    }
+
+    .pred {
+      margin: 130px 0px 0px 0px;
+    }
+
+    .pred:hover {
+      margin: 130px 0px 0px 0px;
+      background-color: #42e5eb;
+    }
+
+    #b {
+      background-color: #fff;
+      margin: -45px 0px 0px 130px;
+      padding: 10px;
+      width: 350px;
+      text-align: center;
+      display: none;
+    }
+
+    #clear {
+      margin: -70px 0px 0px 520px;
+      display: none;
+    }
+
+    #clear:hover {
+      background-color: #42e5eb;
+    }
+  </style>
+
+</head>
+
+<body>
+  <section class="bg-dark">
+    <div class="container">
+      <nav class="navbar">
+        <span>
+          <h1 class="page-header text-primary">Pancreatic Cancer Prediction System</h1>
+        </span>
+        <button type="button"><a href="#">Help</a></button>
+      </nav>
+  </section>
+  <div class="container">
+    <div class="center">
+      <div class="form-input">
+        <form action="" method="post">
+          <label for="file-ip-1" id="upload">Upload Image</label>
+          <p class="text-secondary" id="note">(Only .jpg images)</p>
+          <div class="preview">
+            <img id="file-ip-1-preview">
+          </div>
+          <input type="file" id="file-ip-1" value="Choose" accept=".jpg" onchange="showPreview(event);">
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="container">
+    <button type="submit" class="btn btn-white btn-lg pred" id="pred">Predict</button>
+    <p id="b"><b id="bb">Prediction = {{ prediction_text }}</b></p>
+    <button type="submit" class="btn btn-white btn-lg" id="clear">Clear</button>
+  </div>
+
+
+
+  <script type="text/javascript">
+    function showPreview(event) {
+      if (event.target.files.length > 0) {
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("file-ip-1-preview");
+        preview.src = src;
+        preview.style.display = "block";
+      }
+    }
+    document.getElementById("pred").onclick = function () {
+      var result = document.getElementById("b");
+      var clr = document.getElementById("clear");
+      result.style.display = "block";
+      result.style.margin = "-45px 0px 0px 130px";
+      result.style.width = "350px";
+      result.style.textAlign = "center";
+      clr.style.display = "block";
+      clr.style.margin = "-45px 0px 0px 520px";
+    }
+    document.getElementById("upload").onclick = function () {
+      var result = document.getElementById("b");
+      result.style.display = "none";
+    }
+    document.getElementById("clear").onclick = function () {
+      var result = document.getElementById("b");
+      var preview = document.getElementById("file-ip-1-preview");
+      // preview.src = src;
+      preview.style.display = "none";
+      result.style.display = "none";
+    }
+  </script>
+</body>
+
+</html>
