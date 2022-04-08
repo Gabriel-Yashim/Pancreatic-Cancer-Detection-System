@@ -87,7 +87,7 @@ def upload():
         #pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
         #result = str(pred_class[0][0][1])               # Convert to string
         result = CAT[int(preds[0][0])]
-        return result
+        return render_template('index.html', prediction_text=result)
     return None
 
 if __name__ == '__main__':
