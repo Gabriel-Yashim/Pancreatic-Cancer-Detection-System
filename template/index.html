@@ -7,14 +7,352 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="icon" type="image/png" href="../static/images/favicon.jpg">
+  <link rel="icon" type="image/png" href="../static/favicon.JPG">
   <title>Pancreatic_Cancer</title>
   <style>
+    ::after,
+    ::before {
+      box-sizing: border-box
+    }
+
+    html {
+      font-family: sans-serif;
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -ms-overflow-style: scrollbar;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    @-ms-viewport {
+      width: device-width
+    }
+
+    section {
+      display: block
+    }
+
     body {
       margin: 0px;
       height: 100vh;
       background: #1283da;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      text-align: left;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+      margin-bottom: .5rem
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: .5rem;
+      font-family: inherit;
+      font-weight: 500;
+      line-height: 1.2;
+      color: inherit
+    }
+
+    .h1,
+    h1 {
+      font-size: 2.5rem
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem
+    }
+
+    .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto
+    }
+
+    @media (min-width:576px) {
+      .container {
+        max-width: 540px
+      }
+    }
+
+    @media (min-width:768px) {
+      .container {
+        max-width: 720px
+      }
+    }
+
+    @media (min-width:992px) {
+      .container {
+        max-width: 960px
+      }
+    }
+
+    @media (min-width:1200px) {
+      .container {
+        max-width: 1140px
+      }
+    }
+
+    .bg-dark {
+      background-color: #343a40 !important
+    }
+
+    a.bg-dark:focus,
+    a.bg-dark:hover,
+    button.bg-dark:focus,
+    button.bg-dark:hover {
+      background-color: #1d2124 !important
+    }
+
+    .navbar {
+      position: relative;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: .5rem 1rem
+    }
+
+    .navbar>.container,
+    .navbar>.container-fluid {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      justify-content: space-between
+    }
+
+    .text-primary {
+      color: #007bff !important
+    }
+
+    a.text-primary:focus,
+    a.text-primary:hover {
+      color: #0062cc !important
+    }
+
+    .text-secondary {
+      color: #6c757d !important
+    }
+
+    a.text-secondary:focus,
+    a.text-secondary:hover {
+      color: #545b62 !important
+    }
+
+    button {
+      border-radius: 0
+    }
+
+    button:focus {
+      outline: 1px dotted;
+      outline: 5px auto -webkit-focus-ring-color
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit
+    }
+
+    button,
+    input {
+      overflow: visible
+    }
+
+    button,
+    select {
+      text-transform: none
+    }
+
+    [type=reset],
+    [type=submit],
+    button,
+    html [type=button] {
+      -webkit-appearance: button
+    }
+
+    [type=button]::-moz-focus-inner,
+    [type=reset]::-moz-focus-inner,
+    [type=submit]::-moz-focus-inner,
+    button::-moz-focus-inner {
+      padding: 0;
+      border-style: none
+    }
+
+
+
+    ::-webkit-file-upload-button {
+      font: inherit;
+      -webkit-appearance: button
+    }
+
+    output {
+      display: inline-block
+    }
+
+    input[type=button].btn-block,
+    input[type=reset].btn-block,
+    input[type=submit].btn-block {
+      width: 100%
+    }
+
+    button.close {
+      padding: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-appearance: none
+    }
+
+    button.bg-primary:focus,
+    button.bg-primary:hover {
+      background-color: #0062cc !important
+    }
+
+
+
+    .bg-dark {
+      background-color: #343a40 !important
+    }
+
+    a.bg-dark:focus,
+    a.bg-dark:hover,
+    button.bg-dark:focus,
+    button.bg-dark:hover {
+      background-color: #1d2124 !important
+    }
+
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    }
+
+    label {
+      display: inline-block;
+      margin-bottom: .5rem
+    }
+
+    @media screen and (prefers-reduced-motion:reduce) {
+      .btn {
+        transition: none
+      }
+    }
+
+    .btn:focus,
+    .btn:hover {
+      text-decoration: none
+    }
+
+    .btn.focus,
+    .btn:focus {
+      outline: 0;
+      box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    }
+
+    .btn.disabled,
+    .btn:disabled {
+      opacity: .65
+    }
+
+    .btn:not(:disabled):not(.disabled) {
+      cursor: pointer
+    }
+
+    .btn:not(:disabled):not(.disabled).active,
+    .btn:not(:disabled):not(.disabled):active {
+      background-image: none
+    }
+
+    a.btn.disabled,
+    fieldset:disabled a.btn {
+      pointer-events: none
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc
+    }
+
+    .btn-primary.focus,
+    .btn-primary:focus {
+      box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+    }
+
+    .btn-primary.disabled,
+    .btn-primary:disabled {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff
+    }
+
+    .btn-primary:not(:disabled):not(.disabled).active,
+    .btn-primary:not(:disabled):not(.disabled):active,
+    .show>.btn-primary.dropdown-toggle {
+      color: #fff;
+      background-color: #0062cc;
+      border-color: #005cbf
+    }
+
+    .btn-primary:not(:disabled):not(.disabled).active:focus,
+    .btn-primary:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-primary.dropdown-toggle:focus {
+      box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+    }
+
+    .btn-lg {
+      padding: .5rem 1rem;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      border-radius: .3rem
     }
 
     .center {
@@ -35,7 +373,7 @@
 
     .form-input {
       width: 600px;
-      height: 300px;
+      height: 250px;
       padding: 20px;
       background: #fff;
       box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
@@ -110,7 +448,7 @@
     <div class="container">
       <nav class="navbar">
         <span>
-          <h1 class="page-header text-primary">Pancreatic Cancer Detection System</h1>
+          <h1 class="text-primary">Pancreatic Cancer Detection System</h1>
         </span>
         <button type="button"><a href="#">Help</a></button>
       </nav>
@@ -137,7 +475,6 @@
     <p id="b"><b id="bb">Prediction = {{ prediction_text }}</b></p>
     <button type="submit" class="btn btn-white btn-lg" id="clear">Clear</button>
   </div>
-
 
 
   <script type="text/javascript">
