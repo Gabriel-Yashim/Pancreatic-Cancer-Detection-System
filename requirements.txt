@@ -10,3 +10,8 @@ matplotlib>=1.4.3
 pandas>=0.19
 scipy>=0.15.1
 gunicorn==20.1.0
+h5py
+Keras
+request
+urllib3
+utils
