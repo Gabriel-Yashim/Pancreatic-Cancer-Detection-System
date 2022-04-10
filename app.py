@@ -4,16 +4,15 @@ Created on Wed April 06 14:35:33 2022
 
 @author: YASHIM GABRIEL
 """
-from __future__ import division, print_function
+#from __future__ import division, print_function
 
-import sys
+#import sys
 import os
-import numpy as np
+#import numpy as np
 import cv2
 
 # Keras
 from keras.models import load_model
-
 # Flask utils
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
@@ -22,15 +21,14 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'model/pancreatic_model_5.h5'
+model_path = 'model/pancreatic_model_5.h5'
 
 # Load your trained model
-model = load_model(MODEL_PATH)
+model = load_model(model_path)
 # model._make_predict_function()          # Necessary
 #print('Model loaded. Start serving...')
 #print('Model loaded. Check http://127.0.0.1:5000/')
 CAT = ["No Tumor", "Tumor"]
-
 
 def model_predict(filepath, model):
     IMG_SIZE = 128
